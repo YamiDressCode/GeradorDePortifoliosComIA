@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livraria - Cadastro</title>
+  <link rel="stylesheet" href="styleCadastro.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">RenewTec</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('sobre') }}">Sobre Nós</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cadastro') }}">Cadastre-se</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+          <div class="container d-flex justify-content-center align-items-center vh-100">
+        <video autoplay loop muted playsinline style="
+        position: fixed; /* Fixa o vídeo na viewport */
+        right: 0;
+        bottom: 0;
+        min-width: 100%; /* Garante que o vídeo cubra toda a largura */
+        min-height: 100%; /* Garante que o vídeo cubra toda a altura */
+        width: auto;
+        height: auto;
+        z-index: -2; /* Coloca o vídeo bem no fundo, atrás de tudo */
+        object-fit: cover; /* Garante que o vídeo preencha a tela sem distorção, cortando as bordas se necessário */
+        opacity: 30%;
+    ">
+        <!-- Substitua 'https://assets.mixkit.co/videos/preview/mixkit-cloudy-sky-background-with-moving-clouds-3069-large.mp4' pelo caminho do seu vídeo -->
+        <!-- É recomendável usar diferentes formatos de vídeo para maior compatibilidade com navegadores -->
+        <source src="https://cdn.pixabay.com/video/2016/11/04/6266-190550868_large.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+    <div style="
+        position: fixed; /* Fixa a sobreposição na viewport */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(212, 4, 253, 0.308); /* Azul claro semi-transparente, similar ao da imagem fornecida */
+        z-index: -1; /* Fica acima do vídeo, mas abaixo do conteúdo principal */
+    "></div>
+    <div class="card shadow-lg p-4" style="width: 30rem;">
+      <img src="img/key.png" alt="" id="imgIconc">
+        <h1 class="text-center mb-4">Cadastro</h1>
+
+        <form id="registerForm">
+          <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" required>
+          </div>
+          <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" id="email" class="form-control" placeholder="Digite seu email" required>
+          </div>
+          <div class="mb-3">
+              <label for="telefone" class="form-label">Número</label>
+              <input type="text" id="telefone" class="form-control" placeholder="Digite seu número" required>
+          </div>
+          <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input type="password" id="senha" class="form-control" placeholder="Digite sua senha" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100" id="buttonc">Cadastrar</button>
+      </form>
+      
+              <p id="message" class="text-center mt-3"></p>
+          </div>
+      </div>
+    <footer style="
+        background-color: #6a0dad; /* Roxo vibrante */
+        color: white; /* Cor do texto branco */
+        padding: 40px 20px; /* Preenchimento interno */
+        text-align: center; /* Centraliza o texto */
+        margin-top: 50px; /* Espaço entre o conteúdo e o footer */
+        position: relative; /* Garante que o footer esteja acima do vídeo de fundo */
+        z-index: 1;
+    ">
+        <div style="
+            max-width: 1200px; /* Largura máxima para o conteúdo do footer */
+            margin: 0 auto; /* Centraliza o conteúdo interno do footer */
+            display: flex; /* Habilita o flexbox para as colunas de informações */
+            flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+            justify-content: space-around; /* Distribui as colunas com espaço entre elas */
+            gap: 30px; /* Espaçamento entre as colunas */
+            align-items: flex-start; /* Alinha o topo das colunas */
+        ">
+            <!-- Coluna 1: Informações de Contato -->
+            <div style="flex: 1; min-width: 200px; text-align: left; padding: 10px;">
+                <h4 style="color: white; margin-bottom: 15px;">Contato</h4>
+                <p style="margin-bottom: 8px; font-size: 0.9em;">Email: contato@renewtec.com</p>
+                <p style="margin-bottom: 8px; font-size: 0.9em;">Telefone: (XX) XXXX-XXXX</p>
+                <p style="margin-bottom: 8px; font-size: 0.9em;">Endereço: Rua Exemplo, 123 - Cidade, UF</p>
+            </div>
+
+            <!-- Coluna 2: Links Rápidos -->
+            <div style="flex: 1; min-width: 150px; text-align: left; padding: 10px;">
+                <h4 style="color: white; margin-bottom: 15px;">Links Rápidos</h4>
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none; font-size: 0.9em;">Início</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none; font-size: 0.9em;">Sobre Nós</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none; font-size: 0.9em;">Planos</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none; font-size: 0.9em;">Termos de Serviço</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" style="color: white; text-decoration: none; font-size: 0.9em;">Política de Privacidade</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Redes Sociais / Mais Infos -->
+            <div style="flex: 1; min-width: 200px; text-align: left; padding: 10px;">
+                <h4 style="color: white; margin-bottom: 15px;">Siga-nos</h4>
+                <p style="margin-bottom: 15px; font-size: 0.9em;">Fique por dentro das novidades:</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: white; text-decoration: none; font-size: 1.5em;"><!-- Ícone Facebook ou similar --> FB</a>
+                    <a href="#" style="color: white; text-decoration: none; font-size: 1.5em;"><!-- Ícone Instagram ou similar --> IG</a>
+                    <a href="#" style="color: white; text-decoration: none; font-size: 1.5em;"><!-- Ícone LinkedIn ou similar --> LI</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 20px; margin-top: 30px;">
+            <p style="font-size: 0.8em; margin: 0;">© 2025 RenewTec. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+ 
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Previne o envio normal do formulário
+    
+      // Coleta os dados do formulário
+      const dados = {
+          nome: document.getElementById("nome").value,
+          email: document.getElementById("email").value,
+          telefone: document.getElementById('telefone').value,
+          senha: document.getElementById('senha').value
+      };
+    
+      console.log('Dados a enviar:', dados);  // Veja se os dados estão corretos
+    
+      // Envia os dados para a API
+      fetch('http://localhost:3000/cadastro', {  // Corrigir o URL para http://localhost:3000
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',  // Importante para enviar dados JSON
+          },
+          body: JSON.stringify(dados)  // Envia os dados como JSON
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Erro ao cadastrar usuário');
+          }
+          return response.json();  // Retorna o corpo da resposta como JSON
+      })
+      .then(data => {
+          console.log('Sucesso:', data);  // Exibe a resposta da API
+          alert('Cadastro realizado com sucesso!');
+          document.getElementById('registerForm').reset();// Reseta o formulário
+          window.location.href = 'login.html';  
+      })
+      .catch(error => {
+          console.error('Erro:', error);  // Exibe o erro se algo der errado
+          alert('Erro ao realizar cadastro: ' + error.message);
+      });
+    });
+    </script>
+
+<script>
+  document.getElementById('pesquisar').addEventListener('click', () => {
+const parametro = document.getElementById('barra-pesquisa').value.trim();
+
+if (!parametro) {
+  alert('Digite um termo para buscar.');
+  return;
+}
+
+// Redireciona para a página de resultados com o parâmetro na URL
+window.location.href = `carrinho.html?search=${encodeURIComponent(idcliente)}`;
+});
+
+</script>   
+</body>
+
+</html>

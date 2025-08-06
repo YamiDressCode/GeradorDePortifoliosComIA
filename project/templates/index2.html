@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>Bem-vindo à RenewTec</h1>
+    <p class="lead">Sua plataforma de geração de conteúdo inteligente</p>
+    
+    <div class="row mt-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Acesse sua conta</h3>
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg mt-3">Login</a>
+                    <p class="mt-3">ou</p>
+                    <a href="{{ url_for('cadastro') }}" class="btn btn-outline-primary btn-lg">Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<video autoplay loop muted playsinline style="
+        position: fixed; /* Fixa o vídeo na viewport */
+        right: 0;
+        bottom: 0;
+        min-width: 100%; /* Garante que o vídeo cubra toda a largura */
+        min-height: 100%; /* Garante que o vídeo cubra toda a altura */
+        width: auto;
+        height: auto;
+        z-index: -2; /* Coloca o vídeo bem no fundo, atrás de tudo */
+        object-fit: cover; /* Garante que o vídeo preencha a tela sem distorção, cortando as bordas se necessário */
+        opacity: 30%;
+    ">
+        <!-- Substitua 'https://assets.mixkit.co/videos/preview/mixkit-cloudy-sky-background-with-moving-clouds-3069-large.mp4' pelo caminho do seu vídeo -->
+        <!-- É recomendável usar diferentes formatos de vídeo para maior compatibilidade com navegadores -->
+        <source src="https://cdn.pixabay.com/video/2016/11/04/6266-190550868_large.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <!-- Sobreposição de Cor (para dar um tom ao vídeo e melhorar a leitura do texto) -->
+    <div style="
+        position: fixed; /* Fixa a sobreposição na viewport */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(212, 4, 253, 0.308); /* Azul claro semi-transparente, similar ao da imagem fornecida */
+        z-index: -1; /* Fica acima do vídeo, mas abaixo do conteúdo principal */
+    "></div>
+    <div style="
+        max-width: 960px; /* Largura máxima para o conteúdo */
+        margin: 50px auto; /* Centraliza a div horizontalmente e adiciona margem superior/inferior */
+        padding: 40px; /* Preenchimento interno */
+        background-color: #ffffffcb; /* Cor de fundo branca com transparência */
+        border-radius: 8px; /* Cantos arredondados */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        position: relative; /* Garante que esta div esteja acima da sobreposição e do vídeo */
+        z-index: 1; /* Garante que esta div esteja acima da sobreposição e do vídeo */
+
+        /* Adicionado para criar as colunas com flexbox */
+        display: flex; /* Habilita o flexbox */
+        flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+        justify-content: center; /* Centraliza as colunas horizontalmente quando há espaço */
+        align-items: center; /* Alinha os itens verticalmente no centro */
+        gap: 30px; /* Adiciona espaçamento entre as colunas */
+    ">
+        <!-- Coluna de Texto (esquerda) -->
+        <div style="
+            flex: 1; /* Permite que esta coluna cresça e encolha */
+            min-width: 350px; /* Largura mínima antes de quebrar a linha em telas pequenas */
+            text-align: center; /* Centraliza o texto dentro desta coluna */
+            padding: 10px; /* Um pouco de padding interno para o texto */
+        ">
+            <h1 style="color: #30003f; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; letter-spacing: 1px;">Monte seu site portfólio com um único clique!</h1>
+            <p style="color: #30003f; line-height: 1.6;">
+                Crie seu portfólio profissional em minutos, não em meses. Com a nossa plataforma intuitiva, assim como o Wix, a inteligência artificial trabalha para você, gerando layouts deslumbrantes, organizando seus projetos e otimizando seu conteúdo para brilhar. Diga adeus à complicação e olá à liberdade de apresentar sua melhor versão ao mundo, de forma inteligente e impactante.
+            </p>
+
+        </div>
+
+        <!-- Coluna da Imagem (direita) - Espaço para a imagem -->
+        <div style="
+            flex: 1; /* Permite que esta coluna cresça e encolha */
+            min-width: 300px; /* Largura mínima antes de quebrar a linha */
+            display: flex; /* Para centralizar a imagem/placeholder dentro dela */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            background-color: #e0e0e0; /* Cor de fundo para o placeholder da imagem */
+            border-radius: 8px; /* Cantos arredondados como o container principal */
+            height: 600px; /* Altura fixa para o placeholder. Ajuste conforme sua imagem */
+            overflow: hidden; /* Esconde qualquer parte da imagem que exceda o container */
+            padding: 10px; /* Padding interno para a área da imagem */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+        ">
+            <!-- Insira sua tag <img> aqui. Exemplo: -->
+            <img src="img/retrato-de-mulher-bonita-e-elegante.jpg" alt="Imagem Ilustrativa" style="max-width: 100%; height: auto; display: block;">
+        </div>
+    </div>
+{% endblock %}
